@@ -1,3 +1,72 @@
 /**
 * Lightbox
 */
+/* Ensure the dialog is hidden when closed to avoid the image appearing in the page flow */
+#lightbox {
+	display: none;
+}
+
+/* When the dialog is open, make it full-viewport and center its content */
+#lightbox[open] {
+	display: flex;
+	position: fixed;
+	inset: 0;
+	width: 100vw;
+	height: 100vh;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	margin: 0;
+	padding: 0;
+	background: transparent;
+	z-index: 9999;
+}
+
+/* Image inside the dialog: very large, centered, with a white frame and colored outline */
+#lightbox[open] img {
+	display: block;
+	max-width: 95vw;
+	max-height: 92vh;
+	width: auto;
+	height: auto;
+	background: #fff;
+	padding: 18px;
+	border-radius: 12px;
+	box-shadow: 0 12px 36px rgba(0,0,0,0.6);
+	border: 6px solid #ffffff; /* white frame */
+	outline: 4px solid #2b4db0; /* colored outline similar to screenshot */
+}
+
+/* Backdrop styling when dialog is open */
+dialog::backdrop {
+	background: rgba(0, 0, 0, 0.75);
+	backdrop-filter: blur(4px) saturate(0.9);
+}
+
+/* Thumbnails: vertical list with bullets (to match the provided screenshot) */
+ul {
+	display: block;
+	list-style: disc outside;
+	padding-left: 40px; /* space for bullets */
+	margin: 0;
+}
+
+ul li {
+	margin-bottom: 10px;
+}
+
+ul li img {
+	display: inline-block;
+	width: 100px;
+	height: 48px;
+	object-fit: cover;
+	cursor: pointer;
+	border-radius: 4px;
+	vertical-align: middle;
+	transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+ul li img:hover {
+	transform: scale(1.03);
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}

@@ -2,6 +2,9 @@
 - nom :
 - prénom :
 - URL Netlify :
+ - nom : Araldi
+ - prénom : Théo
+ - URL Netlify : https://votre-site.netlify.app  <!-- Remplacez par votre URL Netlify -->
 
 # Travail
 
